@@ -20,7 +20,7 @@ export const createCustomer = async (req: Request, res: Response) => {
 
 export const getCustomers = async (req: Request, res: Response) => {
   try {
-    const customers = await prisma.customer.findFirst();
+    const customers = await prisma.customer.findMany();
     res.status(200).json(customers);
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
