@@ -6,7 +6,7 @@
     "start": "node ./dist/index.js",
     "dev": "nodemon src/index.ts",
     "build": "npm install && tsc",
-    "migrate": "prisma migrate dev &&  prisma generate"
+    "migrate": "prisma migrate dev && prisma generate"
   },
   "keywords": [],
   "author": "",
