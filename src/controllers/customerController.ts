@@ -1,16 +1,14 @@
 import { Request, Response } from "express";
-import { PrismaClient  } from "@prisma/client";
+import { PrismaClient } from "../../prisma/generated/client";
 import { customerType } from "../types/modelTypes/customer";
 
-
 const prisma = new PrismaClient();
-
 
 export const createCustomer = async (req: Request, res: Response) => {
   const { name } = req.body;
 
   try {
-    const newCustomer: customerType = await prisma.customer.create({
+    const newCustomer = await prisma.customer.create({
       data: {
         name,
       },
@@ -23,9 +21,9 @@ export const createCustomer = async (req: Request, res: Response) => {
 
 export const getCustomers = async (req: Request, res: Response) => {
   try {
-    const customers: customerType[] = await prisma.customer.findMany();
+    const customers = await prisma.customer.findFirst();
     res.status(200).json(customers);
   } catch (error) {
     res.status(500).json({ error: "Internal server error" });
   }
-}
+};
