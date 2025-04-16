@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { PrismaClient } from "../../prisma/generated/client";
-import { customerType } from "../types/modelTypes/customer";
 
 const prisma = new PrismaClient();
 
